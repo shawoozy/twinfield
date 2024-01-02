@@ -137,6 +137,12 @@ class TransactionsDocument extends BaseDocument
                 $lineElement->appendChild($dim2Element);
             }
 
+            $dim3 = $transactionLine->getDim3();
+            if (!empty($dim3)) {
+                $dim3Element = $this->createNodeWithTextContent('dim3', $dim3);
+                $lineElement->appendChild($dim3Element);
+            }
+    
             $this->appendValueValues($lineElement, $transactionLine);
 
             if (Util::objectUses(PerformanceFields::class, $transactionLine)) {
